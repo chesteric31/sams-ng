@@ -10,6 +10,8 @@ import {CategoryService} from './category/category.service';
 import { NavComponent } from './nav/nav.component';
 import { FootComponent } from './foot/foot.component';
 import { HomeComponent } from './home/home.component';
+import { StrengthComponent } from './strength/strength.component';
+import {StrengthService} from './strength/strength.service';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HomeComponent } from './home/home.component';
     CategoryComponent,
     NavComponent,
     FootComponent,
-    HomeComponent
+    HomeComponent,
+    StrengthComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule
   ],
   providers: [
-    CategoryService
+    CategoryService,
+    StrengthService
   ],
   bootstrap: [AppComponent]
 })
