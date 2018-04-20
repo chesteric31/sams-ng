@@ -1,8 +1,6 @@
-<p>
-  The list of categories
-</p>
-<ul *ngFor="let category of categories">
-  <li>
+<h5>The list of categories</h5>
+<ul *ngFor="let category of categories" class="list-group list-group-flush">
+  <li class="list-group-item">
     {{ category.name }}
   </li>
 </ul>
