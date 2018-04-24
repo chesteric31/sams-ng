@@ -1,4 +1,4 @@
-import {BaseEntity} from '../shared/base.entity.model';
+import {BaseEntity} from '../shared/base.entity';
 
 export class Strength extends BaseEntity {
 

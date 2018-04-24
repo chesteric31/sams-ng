@@ -12,6 +12,9 @@ import { FootComponent } from './foot/foot.component';
 import { HomeComponent } from './home/home.component';
 import { StrengthComponent } from './strength/strength.component';
 import {StrengthService} from './strength/strength.service';
+import { ArmorComponent } from './armor/armor.component';
+import {ArmorService} from './armor/armor.service';
+import {NgHttpLoaderModule} from 'ng-http-loader/ng-http-loader.module';
 
 
 @NgModule({
@@ -21,16 +24,19 @@ import {StrengthService} from './strength/strength.service';
     NavComponent,
     FootComponent,
     HomeComponent,
-    StrengthComponent
+    StrengthComponent,
+    ArmorComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgHttpLoaderModule
   ],
   providers: [
     CategoryService,
-    StrengthService
+    StrengthService,
+    ArmorService
   ],
   bootstrap: [AppComponent]
 })

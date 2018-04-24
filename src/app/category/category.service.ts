@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SERVER_API_URL} from '../app.constants';
 import 'rxjs/add/operator/map';
-import {Category} from './category.model';
+import {Category} from './category';
 
 @Injectable()
 export class CategoryService {

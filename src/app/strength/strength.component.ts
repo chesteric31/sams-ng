@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StrengthService} from './strength.service';
-import {Strength} from './strength.model';
+import {Strength} from './strength';
 
 @Component({
   selector: 'app-strength',
