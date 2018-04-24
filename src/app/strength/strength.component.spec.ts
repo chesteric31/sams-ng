@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StrengthComponent } from './strength.component';
+import {StrengthService} from './strength.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('StrengthComponent', () => {
   let component: StrengthComponent;
@@ -8,7 +10,8 @@ describe('StrengthComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StrengthComponent ]
+      declarations: [ StrengthComponent ],
+      providers: [ StrengthService, HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));

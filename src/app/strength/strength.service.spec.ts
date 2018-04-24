@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { StrengthService } from './strength.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('StrengthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [StrengthService]
+      providers: [StrengthService, HttpClient, HttpHandler]
     });
   });
 

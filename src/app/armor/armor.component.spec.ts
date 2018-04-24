@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArmorComponent } from './armor.component';
+import {ArmorService} from './armor.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('ArmorComponent', () => {
   let component: ArmorComponent;
@@ -8,7 +10,8 @@ describe('ArmorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArmorComponent ]
+      declarations: [ ArmorComponent ],
+      providers: [ ArmorService, HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));
