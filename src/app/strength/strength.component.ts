@@ -9,7 +9,7 @@ import {Strength} from './strength';
 })
 export class StrengthComponent implements OnInit {
 
-  private strengths: Strength[];
+  private _strengths: Strength[];
 
   constructor(
     private service: StrengthService
@@ -17,9 +17,17 @@ export class StrengthComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe(
-      data => this.strengths = data,
+      data => this._strengths = data,
       error => console.error(error)
     )
+  }
+
+  get strengths() {
+    return this._strengths;
+  }
+
+  set strengths(strengths: Strength[]) {
+    this._strengths = strengths;
   }
 
 }
