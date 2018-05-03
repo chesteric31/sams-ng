@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit {
   }
 
   get categories() {
-    return this.categories;
+    return this._categories;
   }
 
   set categories(categories: Category[]) {
