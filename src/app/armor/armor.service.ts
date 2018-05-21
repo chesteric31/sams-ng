@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {SERVER_API_URL} from '../app.constants';
 import {HttpClient} from '@angular/common/http';
 import {Armor} from './armor';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ArmorService {
@@ -11,10 +12,11 @@ export class ArmorService {
   ) { }
 
   getAll() {
-    return this.http.get(SERVER_API_URL + 'armors')
-      .map((data: any) => {
-        return data._embedded.armors as Armor[]
-      });
+    return this.http.get<Armor[]>(SERVER_API_URL + 'armors')
+      .pipe(
+        map((data: any) => {
+          return data._embedded.armors;
+      }));
   }
 
 }

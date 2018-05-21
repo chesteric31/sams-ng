@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SERVER_API_URL} from '../app.constants';
-import 'rxjs/add/operator/map';
+
 import {Category} from './category';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class CategoryService {
@@ -12,10 +13,11 @@ export class CategoryService {
   ) { }
 
   getAll() {
-    return this.http.get(SERVER_API_URL + 'categories')
-      .map((data: any) => {
-        return data._embedded.categories as Category[]
-      });
+    return this.http.get<Category[]>(SERVER_API_URL + 'categories')
+      .pipe(
+        map((data: any) => {
+          return data._embedded.categories;
+      }));
   }
 
 }
