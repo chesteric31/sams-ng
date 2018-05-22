@@ -14,12 +14,22 @@ export class ArmorComponent implements OnInit {
   private _armors: Armor[];
 
   constructor(
-    private service: ArmorService
+    private service: ArmorService,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
     this.service.getAll().subscribe(
       data => this._armors = data,
+      error => console.error(error)
+    )
+    let category
+    this.categoryService.getByName('Bronze').subscribe(
+      data => { category = data, console.log(category)},
+      error => console.error(error)
+    )
+    this.service.save(category).subscribe(
+      data => console.log(data),
       error => console.error(error)
     )
   }

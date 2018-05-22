@@ -20,4 +20,13 @@ export class CategoryService {
       }));
   }
 
+  getByName(name: string) {
+    return this.http.get<Category>(SERVER_API_URL + 'categories' + '/search/findByNameAllIgnoringCase?name=' + name)
+    .pipe(
+      map((data: any) => {
+        return data._embedded.categories;
+    }));
+  }
+
+
 }
