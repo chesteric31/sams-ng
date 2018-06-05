@@ -16,9 +16,17 @@ export class ArmorService {
     return this.http.get<Armor[]>(SERVER_API_URL + 'armors')
       .pipe(
         map((data: any) => {
-          console.log(data._embedded.armors);
           return data._embedded.armors;
-      }));
+        }),
+        map((armors: Armor[]) => {
+          armors.forEach(armor => {
+            this.http.get<Category>(armor._links.category.href).subscribe(category => {
+              armor.category = category;
+            });
+          });
+          return armors;
+        })
+      );
   }
 
   save(category: Category) {

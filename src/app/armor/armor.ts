@@ -3,7 +3,8 @@ import { Category } from '../category/category';
 
 export class Armor extends BaseEntity {
 
-  constructor(name: string, private category: Category) {
+  public _links;
+  constructor(public name: string, public category: Category) {
     super(name);
   }
 }

@@ -4,7 +4,7 @@
     <th>Category</th>
   </tr>
   <tr *ngFor="let armor of armors">
-    <td>{{ armor.name }}</td>
-    <td>{{ armor.category }}</td>
+    <td *ngIf="armor">{{ armor.name }}</td>
+    <td *ngIf="armor && armor.category">{{ armor.category.name }}</td>
   </tr>
 </table>
