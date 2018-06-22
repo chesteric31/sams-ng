@@ -20,8 +20,8 @@ export class ArmorService {
         }),
         map((armors: Armor[]) => {
           armors.forEach(armor => {
-            this.http.get<Category>(armor._links.category.href).subscribe(category => {
-              armor.category = category;
+            this.http.get<string>(armor._links.category.href).subscribe(href => {
+              armor.category = href;
             });
           });
           return armors;
@@ -29,8 +29,10 @@ export class ArmorService {
       );
   }
 
-  save(category: Category) {
-    let armor = new Armor('Cygnus', category);
+  save(categories: Category[]) {
+    // console.log('pre post', categories[0]._links.armorCategory.href);
+    let armor = new Armor('Cygnus', categories[0]._links.armorCategory.href);
+    console.log('pre post', armor);
     return this.http.post(SERVER_API_URL + 'armors', armor);
   }
 

@@ -12,6 +12,7 @@ import {Armor} from './armor';
 export class ArmorComponent implements OnInit {
 
   private _armors: Armor[];
+  private categories: Category[];
 
   constructor(
     private service: ArmorService,
@@ -23,12 +24,21 @@ export class ArmorComponent implements OnInit {
       data => this._armors = data,
       error => console.error(error)
     )
-    let category
-    this.categoryService.getByName('Bronze').subscribe(
-      data => { category = data, console.log(category)},
-      error => console.error(error)
-    )
-    this.service.save(category).subscribe(
+    // let category
+    // this.categoryService.getByName('Bronze').subscribe(
+    //   data => { category = data, console.log(category)},
+    //   error => console.error(error)
+    // )
+    // this.service.save(category).subscribe(
+    //   data => console.log(data),
+    //   error => console.error(error)
+    // )
+    this.save();
+  }
+
+  async save() {
+    this.categories = await this.categoryService.getByName('Bronze').toPromise();
+    this.service.save(this.categories).subscribe(
       data => console.log(data),
       error => console.error(error)
     )
