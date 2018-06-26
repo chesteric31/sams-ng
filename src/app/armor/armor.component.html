@@ -3,10 +3,21 @@
     <tr>
       <th>Name</th>
       <th>Category</th>
+      <th>Versions</th>
     </tr>
   </thead>
   <tr *ngFor="let armor of armors">
     <td *ngIf="armor">{{ armor.name }}</td>
     <td *ngIf="armor && armor.category">{{ armor.category.name }}</td>
+    <td *ngIf="armor && armor.versions">
+      <div *ngFor="let version of armor.versions" class="card bg-dark text-white">
+        <img class="card-img" [src]="version.image" alt="Card image">
+        <div class="card-img-overlay">
+          <h5 class="card-title">{{version.name}}</h5>
+          <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+          <!--<p class="card-text">Last updated 3 mins ago</p>-->
+        </div>
+      </div>
+    </td>
   </tr>
 </table>
