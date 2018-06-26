@@ -20,7 +20,7 @@ export class ArmorService {
         }),
         map((armors: Armor[]) => {
           armors.forEach(armor => {
-            this.http.get<string>(armor._links.category.href).subscribe(href => {
+            this.http.get<Category>(armor._links.category.href).subscribe(href => {
               armor.category = href;
             });
           });
