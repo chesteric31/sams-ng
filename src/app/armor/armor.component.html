@@ -1,8 +1,10 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Category</th>
-  </tr>
+<table class="table table-bordered table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+    </tr>
+  </thead>
   <tr *ngFor="let armor of armors">
     <td *ngIf="armor">{{ armor.name }}</td>
     <td *ngIf="armor && armor.category">{{ armor.category.name }}</td>

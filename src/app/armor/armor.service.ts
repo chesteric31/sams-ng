@@ -29,11 +29,11 @@ export class ArmorService {
       );
   }
 
-  save(categories: Category[]) {
-    // console.log('pre post', categories[0]._links.armorCategory.href);
-    let armor = new Armor('Cygnus', categories[0]._links.armorCategory.href);
-    console.log('pre post', armor);
-    return this.http.post(SERVER_API_URL + 'armors', armor);
-  }
+  // save(categories: Category[]) {
+  //   // console.log('pre post', categories[0]._links.armorCategory.href);
+  //   let armor = new Armor('Cygnus', categories[0]._links.armorCategory.href);
+  //   console.log('pre post', armor);
+  //   return this.http.post(SERVER_API_URL + 'armors', armor);
+  // }
 
 }

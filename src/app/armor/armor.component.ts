@@ -33,16 +33,16 @@ export class ArmorComponent implements OnInit {
     //   data => console.log(data),
     //   error => console.error(error)
     // )
-    this.save();
+    // this.save();
   }
 
-  async save() {
-    this.categories = await this.categoryService.getByName('Bronze').toPromise();
-    this.service.save(this.categories).subscribe(
-      data => console.log(data),
-      error => console.error(error)
-    )
-  }
+  // async save() {
+    // this.categories = await this.categoryService.getByName('Bronze').toPromise();
+    // this.service.save(this.categories).subscribe(
+    //   data => console.log(data),
+    //   error => console.error(error)
+    // )
+  // }
 
   get armors() {
     return this._armors;
